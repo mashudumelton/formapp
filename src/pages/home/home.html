@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="person" (ngSubmit)="onSubmit(person)">
+    <ion-item>
+      <ion-label floating>Name</ion-label>
+      <ion-input formControlName="name" type="text"></ion-input>
+    </ion-item>
+
+    <div *ngIf = "person.controls.name.invalid && person.controls.name.dirty">
+      <p>Please enter Name</p>
+    </div>
+
+    <ion-item>
+      <ion-label floating>Surname</ion-label>
+      <ion-input formControlName="surname" type="text"></ion-input>
+    </ion-item>
+
+    <div *ngIf = "person.controls.surname.invalid && person.controls.surname.dirty">
+      <p>Please enter Surname</p>
+    </div>
+
+    <ion-item>
+      <ion-label floating>Gender</ion-label>
+      <ion-input formControlName="gender" type="text"></ion-input>
+    </ion-item>
+
+    <div *ngIf = "person.controls.gender.invalid && person.controls.gender.dirty">
+      <p>Please enter Sender</p>
+    </div>
+
+    <ion-item>
+      <ion-label floating>Age</ion-label>
+      <ion-input formControlName="age" type="number"></ion-input>
+    </ion-item>
+
+    <div *ngIf = "person.controls.age.invalid && person.controls.age.dirty">
+      <p>Please enter Age</p>
+    </div>
+
+    <button ion-button type="submit" [disabled]="person.invalid">Submit</button>
+  </form>
+</ion-content>
